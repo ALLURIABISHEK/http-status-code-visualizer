@@ -54,7 +54,6 @@ export default function App() {
 
     const getTheme = (code) => {
         if (code === 200) return 'green';
-        if ([422, 429].includes(code)) return 'yellow';
         return 'red';
     };
 
@@ -526,7 +525,7 @@ export default function App() {
                             <motion.div
                                 className="absolute border border-[#a855f7]/30 bg-[#a855f7]/5 rounded-3xl p-4 shadow-[0_0_30px_rgba(168,85,247,0.1)]"
                                 style={{ left: -30, top: -30, width: 740, height: 390 }}
-                                animate={{ borderColor: ["rgba(168,85,247,0.2)", "rgba(168,85,247,0.5)", "rgba(168,85,247,0.2)"] }}
+                                animate={isMobile ? {} : { borderColor: ["rgba(168,85,247,0.2)", "rgba(168,85,247,0.5)", "rgba(168,85,247,0.2)"] }}
                                 transition={{ duration: 3, repeat: Infinity }}
                             >
                                 <div className="absolute -top-3 left-10 bg-[#050505] px-3 text-[#a855f7] font-mono text-[9px] font-black tracking-[0.3em] uppercase">
@@ -555,7 +554,12 @@ export default function App() {
                                 }
 
                                 return (
-                                    <motion.div key={node.id} animate={isActive ? { scale: [1, 1.05, 1], boxShadow: ["0 0 20px rgba(168,85,247,0.1)", "0 0 40px rgba(168,85,247,0.3)", "0 0 20px rgba(168,85,247,0.1)"] } : {}} transition={{ duration: 1.5, repeat: Infinity }} className={`absolute flex items-center gap-3 px-4 py-2 w-[140px] h-[50px] rounded-xl border transition-all duration-300 shadow-xl ${classes}`} style={{ left: node.x, top: node.y }}>
+                                    <motion.div
+                                        key={node.id}
+                                        animate={isActive && !isMobile ? { scale: [1, 1.04, 1] } : {}}
+                                        transition={{ duration: 1.5, repeat: Infinity }}
+                                        className={`absolute flex items-center gap-3 px-4 py-2 w-[140px] h-[50px] rounded-xl border transition-all duration-300 shadow-xl ${classes}`}
+                                        style={{ left: node.x, top: node.y }}>
                                         <Icon className={`w-4 h-4 shrink-0 ${textGlow} filter drop-shadow-[0_0_5px_currentColor]`} />
                                         <span className={`text-[10px] font-bold tracking-widest uppercase font-mono truncate ${textGlow}`}>{node.label}</span>
                                         {isFailed && (
@@ -578,13 +582,16 @@ export default function App() {
                                     <motion.div
                                         initial={{ x: activeCenter.x - 6, y: activeCenter.y - 6, opacity: 0, scale: 0.5 }}
                                         animate={{
-                                            x: activeCenter.x - 6, y: activeCenter.y - 6, opacity: 1, scale: 1,
-                                            boxShadow: simulating ? ["0 0 20px #a855f7", "0 0 40px #a855f7", "0 0 20px #a855f7"] : "0 0 0px rgba(0,0,0,0)"
+                                            x: activeCenter.x - 6,
+                                            y: activeCenter.y - 6,
+                                            opacity: 1,
+                                            scale: 1,
                                         }}
                                         transition={{
-                                            x: { type: 'spring', stiffness: 150, damping: 20 },
-                                            y: { type: 'spring', stiffness: 150, damping: 20 },
-                                            scale: { repeat: Infinity, duration: 1, repeatType: "reverse" }
+                                            x: { type: 'tween', duration: 0.25, ease: 'easeOut' },
+                                            y: { type: 'tween', duration: 0.25, ease: 'easeOut' },
+                                            opacity: { duration: 0.15 },
+                                            scale: { duration: 0.15 },
                                         }}
                                         className={`absolute w-3 h-3 rounded-full border z-20 ${packetTheme} ${glowClass}`}
                                     />
