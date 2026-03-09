@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Play, RotateCcw, Activity, Download, FileJson, Info, CheckCircle2, XCircle,
     Monitor, Globe, Cloud, Server, Waypoints, Key, ShieldCheck, Timer,
-    FileCheck, Route as RouteIcon, Cpu, Database, Send, ChevronRight, Github
+    FileCheck, Route as RouteIcon, Cpu, Database, Send, ChevronRight, Github, Linkedin
 } from 'lucide-react';
 import { statusConfig } from './data';
 
@@ -303,6 +303,22 @@ export default function App() {
 
                                 {/* Links Section */}
                                 <div className="mt-auto pt-6 border-t border-[#1f1f25] flex flex-col gap-3">
+                                    {/* LinkedIn Link */}
+                                    <a
+                                        href="https://www.linkedin.com/in/alluri-abishek-kumar/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
+                                    >
+                                        <div className="p-2 rounded-xl bg-[#0a66c2]/10 text-[#0a66c2]">
+                                            <Linkedin className="w-5 h-5" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold text-white">LinkedIn</span>
+                                            <span className="text-[10px] text-zinc-500 font-mono tracking-tighter">alluri-abishek-kumar</span>
+                                        </div>
+                                        <ChevronRight className="w-4 h-4 ml-auto text-zinc-600" />
+                                    </a>
                                     {/* Portfolio Link */}
                                     <a
                                         href="https://portfolio-abi.onrender.com/"
@@ -485,6 +501,22 @@ export default function App() {
 
                             {/* Links Section */}
                             <div className="mt-auto pt-4 border-t border-[#1f1f25] flex flex-col gap-2">
+                                {/* LinkedIn Link */}
+                                <a
+                                    href="https://www.linkedin.com/in/alluri-abishek-kumar/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#0a66c2]/30 transition-all group"
+                                >
+                                    <div className="p-2 rounded-lg bg-black/40 text-zinc-400 group-hover:text-[#0a66c2] group-hover:bg-[#0a66c2]/10 transition-colors">
+                                        <Linkedin className="w-4 h-4" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-[10px] font-bold text-zinc-400 group-hover:text-white transition-colors uppercase tracking-wider">LinkedIn</span>
+                                        <span className="text-[8px] text-zinc-600 font-mono">alluri-abishek-kumar</span>
+                                    </div>
+                                    <ChevronRight className="w-3 h-3 ml-auto text-zinc-600 group-hover:text-[#0a66c2] group-hover:translate-x-0.5 transition-all" />
+                                </a>
                                 {/* Portfolio Link */}
                                 <a
                                     href="https://portfolio-abi.onrender.com/"
