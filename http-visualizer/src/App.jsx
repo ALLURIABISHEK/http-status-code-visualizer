@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Play, RotateCcw, Activity, Download, FileJson, Info, CheckCircle2, XCircle,
     Monitor, Globe, Cloud, Server, Waypoints, Key, ShieldCheck, Timer,
-    FileCheck, Route as RouteIcon, Cpu, Database, Send, ChevronRight
+    FileCheck, Route as RouteIcon, Cpu, Database, Send, ChevronRight, Github
 } from 'lucide-react';
 import { statusConfig } from './data';
 
@@ -273,7 +273,7 @@ export default function App() {
                             />
                             <motion.div
                                 initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
-                                className="absolute left-0 top-0 bottom-0 w-[80%] bg-[#0a0a0c] border-r border-[#1f1f25] z-[101] p-6 shadow-2xl"
+                                className="absolute left-0 top-0 bottom-0 w-[80%] bg-[#0a0a0c] border-r border-[#1f1f25] z-[101] p-6 shadow-2xl flex flex-col"
                             >
                                 <h2 className="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase mb-6 flex items-center justify-between font-mono">
                                     <span><FileJson className="w-4 h-4 inline mr-2" /> Payload</span>
@@ -299,6 +299,25 @@ export default function App() {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                {/* Github Link */}
+                                <div className="mt-auto pt-6 border-t border-[#1f1f25]">
+                                    <a
+                                        href="https://github.com/ALLURIABISHEK"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
+                                    >
+                                        <div className="p-2 rounded-xl bg-[#a855f7]/10 text-[#a855f7]">
+                                            <Github className="w-5 h-5" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold text-white">GitHub</span>
+                                            <span className="text-[10px] text-zinc-500 font-mono tracking-tighter">@ALLURIABISHEK</span>
+                                        </div>
+                                        <ChevronRight className="w-4 h-4 ml-auto text-zinc-600" />
+                                    </a>
                                 </div>
                             </motion.div>
                         </>
@@ -445,6 +464,25 @@ export default function App() {
                                         {statusCode === 422 && <div className="text-yellow-500 text-[10px] mt-2 font-bold">// Schema validation err</div>}
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Github Link */}
+                            <div className="mt-auto pt-6 border-t border-[#1f1f25]">
+                                <a
+                                    href="https://github.com/ALLURIABISHEK"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#a855f7]/30 transition-all group"
+                                >
+                                    <div className="p-2 rounded-lg bg-black/40 text-zinc-400 group-hover:text-[#a855f7] group-hover:bg-[#a855f7]/10 transition-colors">
+                                        <Github className="w-4 h-4" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-[10px] font-bold text-zinc-400 group-hover:text-white transition-colors uppercase tracking-wider">GitHub Profile</span>
+                                        <span className="text-[8px] text-zinc-600 font-mono">@ALLURIABISHEK</span>
+                                    </div>
+                                    <ChevronRight className="w-3 h-3 ml-auto text-zinc-600 group-hover:text-[#a855f7] group-hover:translate-x-0.5 transition-all" />
+                                </a>
                             </div>
                         </aside>
                     )}
