@@ -5,6 +5,7 @@ import {
     Monitor, Globe, Cloud, Server, Waypoints, Key, ShieldCheck, Timer,
     FileCheck, Route as RouteIcon, Cpu, Database, Send, ChevronRight
 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { statusConfig } from './data';
 
 const nodesData = [
@@ -724,6 +725,7 @@ export default function App() {
                     </footer>
                 )}
             </div>
+            <Analytics />
         </>
     );
 }
