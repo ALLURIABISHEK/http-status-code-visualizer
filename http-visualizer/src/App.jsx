@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Play, RotateCcw, Activity, Download, FileJson, Info, CheckCircle2, XCircle,
@@ -828,6 +829,7 @@ export default function App() {
                     </footer>
                 )}
             </div>
+            <Analytics />
         </>
     );
 }
