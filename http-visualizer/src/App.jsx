@@ -826,7 +826,23 @@ export default function App() {
                                 </button>
                             ))}
                         </div>
+
+                        {/* Attribution for SEO */}
+                        <div className="mt-4 pt-4 border-t border-white/5 text-center">
+                            <p className="text-[9px] text-zinc-600 font-bold tracking-[0.2em] uppercase">
+                                Designed & Developed by <span className="text-zinc-400">Alluri Abhishek Kumar</span>
+                            </p>
+                        </div>
                     </footer>
+                )}
+
+                {/* Desktop Attribution */}
+                {!isMobile && (
+                    <div className="absolute bottom-6 left-0 right-0 text-center z-50 pointer-events-none">
+                        <p className="text-[10px] text-zinc-700 font-bold tracking-[0.3em] uppercase">
+                            Designed & Developed by <span className="text-zinc-500">Alluri Abhishek Kumar</span>
+                        </p>
+                    </div>
                 )}
             </div>
             <Analytics />
